@@ -9,7 +9,7 @@ class CarController {
     async index(req, res, next) {
         try {
             const cars = await car_model_1.default.find().populate('brand');
-            res.render('admin/cars/list', { cars: cars });
+            res.render('admin/employees/list', { cars: cars });
         }
         catch (e) {
             next(e);
@@ -19,7 +19,7 @@ class CarController {
         console.log(req.body);
         try {
             let brands = await brand_model_1.default.find();
-            res.render('admin/cars/add', { data: brands });
+            res.render('admin/employees/add', { data: brands });
         }
         catch (e) {
             next(e);
@@ -57,7 +57,7 @@ class CarController {
             const car = await car_model_1.default.findOne({ _id: req.params.id });
             const brands = await brand_model_1.default.find();
             if (car) {
-                res.render("admin/cars/update", { data: { car, brands } });
+                res.render("admin/employees/update", { data: { car, brands } });
             }
             else {
                 res.render('error');
@@ -90,7 +90,7 @@ class CarController {
         try {
             const car = await car_model_1.default.findOne({ _id: req.params.id }).populate('brand');
             const brands = await brand_model_1.default.find();
-            res.render('admin/cars/detail', { data: { car, brands } });
+            res.render('admin/employees/detail', { data: { car, brands } });
         }
         catch (err) {
             res.render(err);

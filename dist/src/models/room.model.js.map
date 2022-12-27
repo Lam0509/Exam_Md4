@@ -1,0 +1,1 @@
+{"version":3,"file":"room.model.js","sourceRoot":"","sources":["../../../src/models/room.model.ts"],"names":[],"mappings":";;;;;AACA,wDAAgC;AAEhC,MAAM,UAAU,GAAG,IAAI,kBAAQ,CAAC,MAAM,CAAC;IACnC,IAAI,EAAE;QACF,IAAI,EAAE,MAAM;KACf;CACJ,CAAC,CAAA;AAEF,MAAM,IAAI,GAAG,kBAAQ,CAAC,KAAK,CAAC,MAAM,EAAE,UAAU,CAAC,CAAC;AAEhD,kBAAe,IAAI,CAAC"}

@@ -1,12 +1,12 @@
 // import { Schema, model } from "mongoose";
 import mongoose from "mongoose";
 
-const brandSchema = new mongoose.Schema({
+const roomSchema = new mongoose.Schema({
     name: {
         type: String,
     }
 })
 
-const Brand = mongoose.model('Brand', brandSchema);
+const Room = mongoose.model('Room', roomSchema);
 
-export default Brand;
+export default Room;

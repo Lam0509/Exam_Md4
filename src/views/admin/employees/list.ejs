@@ -256,28 +256,38 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                                <a href="/admin/products/create" class="btn btn-success mb-2">Add</a>
+                                <a href="/admin/employees/create" class="btn btn-success mb-2 d-inline-block">Add Employee</a>
+                            <select class="custom-select d-inline-block w-25 mb-2" onchange="chooseRoom(this.value)">
+                                <option value="All Rooms">All Rooms</option>
+                                <% rooms.forEach(room => { %>
+                                    <option value="<%= room.id %>"><%= room.name %></option>
+                                <% }) %>
+                            </select>
                             <table class="table table-bordered" id="dataTable">
                                 <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Employee Code</th>
                                     <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Brand</th>
-                                    <th>Function</th>
+                                    <th>Age</th>
+                                    <th>Salary</th>
+                                    <th>Room</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
-                                <tbody id="list-product">
-                                <% cars.forEach((item, index) => { %>
+                                <tbody id="list-employees">
+                                <% employees.forEach((employee, index) => { %>
                                     <tr>
                                         <td><%= index + 1 %></td>
-                                        <td><a href="/admin/products/detail/<%=item._id%>"><%= item.name%></a></td>
-                                        <td><%= item.price%></td>
-                                        <td><%= (item.brand) ? item.brand.name : "None" %></td>
+                                        <td><%= employee.code %></td>
+                                        <td><a href="/admin/employees/detail/<%= employee._id %>"><%= employee.name %></a></td>
+                                        <td><%= employee.age %></td>
+                                        <td><%= employee.salary %></td>
+                                        <td><%= employee.room.name %></td>
                                         <td>
-                                            <a onclick="return confirm('Are you sure?')"
-                                               href="/admin/products/delete/<%= item._id %>" class="btn btn-danger">Delete</a>
-                                            <a href="/admin/products/update/<%= item._id %>"
+                                            <a onclick="return confirm('Do you want to delete?')"
+                                               href="/admin/employees/delete/<%= employee._id %>" class="btn btn-danger">Delete</a>
+                                            <a href="/admin/employees/update/<%= employee._id %>"
                                                class="btn btn-primary">Update</a>
                                         </td>
                                     </tr>
@@ -336,7 +346,9 @@
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Bootstrap core JavaScript-->
+<script src="/js/admin/chooseRoom.js"></script>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 

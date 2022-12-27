@@ -1,11 +1,9 @@
 import mongoose from 'mongoose';
 
-const CLOUD_DB_URL = 'mongodb+srv://YenDoan:yendoan1A@yendoan0501.117vzjo.mongodb.net/exam';
-
 let database = {
     connect: () => {
         mongoose.set('strictQuery', false);
-        mongoose.connect(CLOUD_DB_URL)
+        mongoose.connect('mongodb://0.0.0.0:27017/test')
             .then(() => console.log('DB Connected!'))
             .catch(error => console.log('DB connection error:', error.message));
     }

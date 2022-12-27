@@ -4,11 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const CLOUD_DB_URL = 'mongodb+srv://YenDoan:yendoan1A@yendoan0501.117vzjo.mongodb.net/exam';
 let database = {
     connect: () => {
         mongoose_1.default.set('strictQuery', false);
-        mongoose_1.default.connect(CLOUD_DB_URL)
+        mongoose_1.default.connect('mongodb://0.0.0.0:27017/test')
             .then(() => console.log('DB Connected!'))
             .catch(error => console.log('DB connection error:', error.message));
     }

@@ -366,32 +366,36 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Product List</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Update Employee</h6>
                     </div>
                     <div class="card-body">
-                        <form action="/admin/products/update/<%=data.car._id%>" method="POST" enctype="multipart/form-data">
+                        <form action="/admin/employees/update/<%= data.employee._id %>" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="">Code</label>
+                                <input type="text" name="code" class="form-control" id="" value="<%= data.employee.code %>">
+                            </div>
                             <div class="form-group">
                                 <label for="">Name</label>
-                                <input type="text" name="name" class="form-control" id="" value="<%=data.car.name%>">
+                                <input type="text" name="name" class="form-control" id="" value="<%= data.employee.name %>">
                             </div>
                             <div class="form-group">
-                                <label for="">Description</label>
-                                <input type="text" name="description" class="form-control" id="" value="<%=data.car.description%>">
+                                <label for="">Age</label>
+                                <input type="text" name="age" class="form-control" id="" value="<%= data.employee.age %>">
                             </div>
                             <div class="form-group">
-                                <label for="">Price</label>
-                                <input type="text" name="price" class="form-control" id="" value="<%=data.car.price%>">
+                                <label for="">Salary</label>
+                                <input type="text" name="salary" class="form-control" id="" value="<%= data.employee.salary %>">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Brand</label>
-                                <select class="form-control" id="" name="brand" >
-                                    <%data.brands.forEach(item => { %>
-                                        <option <%= item._id.toString() === data.car.brand?._id?.toString() ? "selected": ""%> value="<%= item._id %>"><%= item.name %></option>
+                                <label for="exampleFormControlSelect1">Room</label>
+                                <select class="form-control" id="" name="room" >
+                                    <%data.rooms.forEach(room => { %>
+                                        <option <%= room._id.toString() === data.employee.room?._id?.toString() ? "selected": ""%> value="<%= room._id %>"><%= room.name %></option>
                                     <% }) %>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="/admin/products" class="btn btn-primary">Cancel</a>
+                            <a href="/admin/employees" class="btn btn-primary">Cancel</a>
                         </form>
                     </div>
                 </div>
